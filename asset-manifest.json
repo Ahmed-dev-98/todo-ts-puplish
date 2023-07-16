@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/frontend-mentor-todo-ts/static/css/main.1dc9691c.css",
+    "main.js": "/frontend-mentor-todo-ts/static/js/main.5a5f4697.js",
+    "static/media/bg-desktop-light.jpg": "/frontend-mentor-todo-ts/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
+    "static/media/bg-desktop-dark.jpg": "/frontend-mentor-todo-ts/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
+    "index.html": "/frontend-mentor-todo-ts/index.html",
+    "static/media/icon-sun.svg": "/frontend-mentor-todo-ts/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
+    "static/media/icon-moon.svg": "/frontend-mentor-todo-ts/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
+    "main.1dc9691c.css.map": "/frontend-mentor-todo-ts/static/css/main.1dc9691c.css.map",
+    "main.5a5f4697.js.map": "/frontend-mentor-todo-ts/static/js/main.5a5f4697.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1dc9691c.css",
+    "static/js/main.5a5f4697.js"
+  ]
+}
