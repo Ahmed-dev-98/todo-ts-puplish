@@ -1,5 +1,6 @@
 {
   "name": "typescript-todo-app",
+  "homepage": "https://Ahmed-dev-98.github.io/todo-ts-puplish",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
@@ -803,6 +804,8 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -812,6 +815,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/react-dom": "^18.2.7",
+    "gh-pages": "^5.0.0",
     "tailwindcss": "^3.3.3"
   },
   "browserslist": {
