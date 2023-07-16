@@ -20,32 +20,31 @@ type todo = {
 function Home() {
   const [todo, setTodo] = useState<string>(""); // add new todo state //
   const { todos } = useAppSelector((state) => state.createTodo); // get todos data from redux store
-  const { isDarkMode } = useAppSelector((state) => state.createTodo); // get current mode state from redux store
+  const { isDarkMode } = useAppSelector((state) => state.createTodo); // get current mode state from redux store Dark / light
   const [isActive, setIsActive] = useState<string>(""); // state for add active class
   const [copyArr, setCopyArr] = useState<todo[]>([]); // state for manipulate todos array without change the main array
   const dispatch = useAppDispatch();
 
-  const calcItemsLeft = todos.filter((e) => e.completed === false).length;
+  const calcItemsLeft = todos.filter((todo) => todo.completed === false).length;
 
   const getCompletedTodos = () => {
     const filterdArray = todos.filter((todo: todo) => todo.completed === true);
-    if(filterdArray.length === 0){
-      return
-    }else{
-
+    if (filterdArray.length === 0) {
+      return;
+    } else {
       setCopyArr(filterdArray);
     }
-  }; // manipulate copied array and render all completed todos
-
+  };
   const getActive = () => {
-    const filterdArray = todos.filter((todo: todo) => todo.completed === false);
-    if (filterdArray.length === 0 ){
-      return
-    }else {
-
-      setCopyArr((prev) => (prev = filterdArray));
-    }; // manipulate copied array and render all not completed yet todos
+    const filterdArray: todo[] = todos.filter(
+      (todo: todo) => todo.completed === false
+    );
+    if (filterdArray.length === 0) {
+      return;
+    } else {
+      setCopyArr((prev) => filterdArray);
     }
+  };
 
   const getAll = () => {
     setCopyArr(todos);
@@ -60,12 +59,9 @@ function Home() {
     setCopyArr([...todos]);
   }, [todos]);
 
-  // input for create new todo
+  // input for new todo
   const getInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodo((e.target as HTMLInputElement).value);
-
-    console.log(e.target);
-
   };
 
   const createTodoHandler = () => {
@@ -114,7 +110,7 @@ function Home() {
 
             <input
               type="text"
-              onChange={ getInput}
+              onChange={getInput}
               value={todo}
               placeholder="Create a new todo..."
               className={
@@ -174,7 +170,9 @@ function Home() {
                   }}
                   className={`hover:text-purple-500 duration-500 ${
                     isActive === "active" ? "text-blue-800" : ""
-                  } ${calcItemsLeft === 0? "cursor-not-allowed text-red-500" : ""} `}
+                  } ${
+                    calcItemsLeft === 0 ? "cursor-not-allowed text-red-500" : ""
+                  } `}
                   id="active"
                 >
                   Active
@@ -182,7 +180,9 @@ function Home() {
                 <button
                   className={`hover:text-purple-500 duration-500 ${
                     isActive === "completed" ? "text-blue-800" : ""
-                  } ${calcItemsLeft === copyArr.length? "text-red-500" : ""} ${calcItemsLeft === 0? "text-green-700" : ""}`}
+                  } ${calcItemsLeft === copyArr.length ? "text-red-500" : ""} ${
+                    calcItemsLeft === 0 ? "text-green-700" : ""
+                  }`}
                   onClick={(e) => {
                     getCompletedTodos();
                     activeButton(e);

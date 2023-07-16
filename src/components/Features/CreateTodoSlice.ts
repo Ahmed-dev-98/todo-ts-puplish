@@ -5,7 +5,8 @@ type todo = {
     todo : string ;
     completed : boolean ;
     id : number
-  }
+  } |undefined
+  type todos = todo[]
 
   // Define a type for the slice state
 type appState = {
@@ -23,7 +24,7 @@ const initialState :appState = {
             todo: "practice coding ", completed: false, id: 432
         },
 
-    ], isDarkMode: false
+    ], isDarkMode: true
 }
 
 export const createTodoSlice = createSlice({
@@ -31,7 +32,7 @@ export const createTodoSlice = createSlice({
     initialState,
     reducers: {
         updateTodo: (state, action:PayloadAction<number>) => {
-            const todo = state.todos.find((e) => e.id === action.payload)
+            const todo:todo = state.todos.find((e) => e.id === action.payload)
             todo!.completed = !todo?.completed
         },
         craeteTodo: (state, action) => {
