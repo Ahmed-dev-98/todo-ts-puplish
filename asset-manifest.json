@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/todo-ts-puplish/static/css/main.1dc9691c.css",
-    "main.js": "/todo-ts-puplish/static/js/main.5faf052b.js",
+    "main.css": "/todo-ts-puplish/static/css/main.40d6acb7.css",
+    "main.js": "/todo-ts-puplish/static/js/main.34a08799.js",
     "static/media/bg-desktop-light.jpg": "/todo-ts-puplish/static/media/bg-desktop-light.3508d620efd5a52bb4ce.jpg",
     "static/media/bg-desktop-dark.jpg": "/todo-ts-puplish/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
     "index.html": "/todo-ts-puplish/index.html",
     "static/media/icon-sun.svg": "/todo-ts-puplish/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
     "static/media/icon-moon.svg": "/todo-ts-puplish/static/media/icon-moon.6c03114b495d05f4380b3c544d9afe2a.svg",
-    "main.1dc9691c.css.map": "/todo-ts-puplish/static/css/main.1dc9691c.css.map",
-    "main.5faf052b.js.map": "/todo-ts-puplish/static/js/main.5faf052b.js.map"
+    "main.40d6acb7.css.map": "/todo-ts-puplish/static/css/main.40d6acb7.css.map",
+    "main.34a08799.js.map": "/todo-ts-puplish/static/js/main.34a08799.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dc9691c.css",
-    "static/js/main.5faf052b.js"
+    "static/css/main.40d6acb7.css",
+    "static/js/main.34a08799.js"
   ]
 }
