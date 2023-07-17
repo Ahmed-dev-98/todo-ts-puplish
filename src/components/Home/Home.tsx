@@ -10,25 +10,20 @@ import {
   toggleMode,
 } from "../Features/CreateTodoSlice";
 import { useAppDispatch, useAppSelector } from "../Hooks/Hooks";
-
-type todo = {
-  todo: string;
-  completed: boolean;
-  id: number;
-};
+import todoType from "../typescriptTypes/customTypes";
 
 function Home() {
-  const [todo, setTodo] = useState<string>(""); // add new todo state //
+  const [todoContent, setTodoContent] = useState<string>(""); // add new todo state //
   const { todos } = useAppSelector((state) => state.createTodo); // get todos data from redux store
   const { isDarkMode } = useAppSelector((state) => state.createTodo); // get current mode state from redux store Dark / light
   const [isActive, setIsActive] = useState<string>(""); // state for add active class
-  const [copyArr, setCopyArr] = useState<todo[]>([]); // state for manipulate todos array without change the main array
+  const [copyArr, setCopyArr] = useState<todoType[]>([]); // state for manipulate todos array without change the main array
   const dispatch = useAppDispatch();
 
   const calcItemsLeft = todos.filter((todo) => todo.completed === false).length;
 
   const getCompletedTodos = () => {
-    const filterdArray = todos.filter((todo: todo) => todo.completed === true);
+    const filterdArray = todos.filter((todo: todoType) => todo.completed === true);
     if (filterdArray.length === 0) {
       return;
     } else {
@@ -36,8 +31,8 @@ function Home() {
     }
   };
   const getActive = () => {
-    const filterdArray: todo[] = todos.filter(
-      (todo: todo) => todo.completed === false
+    const filterdArray: todoType[] = todos.filter(
+      (todo: todoType) => todo.completed === false
     );
     if (filterdArray.length === 0) {
       return;
@@ -61,16 +56,16 @@ function Home() {
 
   // input for new todo
   const getInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTodo((e.target as HTMLInputElement).value);
+    setTodoContent((e.target as HTMLInputElement).value);
   };
 
   const createTodoHandler = () => {
-    if (!todo) {
+    if (!todoContent) {
       return;
     } else {
       const id = Math.random(); // create random id to use it as component key , update todo , delete todo
-      dispatch(craeteTodo({ todo, id }));
-      setTodo("");
+      dispatch(craeteTodo({ todoContent, id }));
+      setTodoContent("");
     }
   };
 
@@ -84,7 +79,7 @@ function Home() {
   };
 
   return (
-    <section className="relative font-josefin font-bold   ">
+    <section className={`relative font-josefin font-bold ${isDarkMode ?'bg-slate-900' : 'bg-white' }  h-screen`}  >
       <div style={backgroundStyle} className=" h-56 w-full duration-500 "></div>
 
       <div className="todo-container w-[30rem] h-[35rem]  mx-auto absolute top-6 right-1/2   translate-x-1/2  ">
@@ -111,7 +106,7 @@ function Home() {
             <input
               type="text"
               onChange={getInput}
-              value={todo}
+              value={todoContent}
               placeholder="Create a new todo..."
               className={
                 isDarkMode
@@ -123,7 +118,7 @@ function Home() {
         </div>
         <div className="overflow-y-auto max-h-[19rem]">
           {copyArr
-            ? copyArr.map((todo: todo) => {
+            ? copyArr.map((todo: todoType) => {
                 return <OverLay key={todo.id} todo={todo} />;
               })
             : ""}
@@ -206,13 +201,7 @@ function Home() {
           ""
         )}
       </div>
-      <div
-        className={
-          isDarkMode
-            ? "bg-slate-900 h-96 duration-500 "
-            : "duration-500 bg-white h-96"
-        }
-      ></div>
+
     </section>
   );
 }
