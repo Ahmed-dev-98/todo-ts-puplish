@@ -23,7 +23,9 @@ function Home() {
   const calcItemsLeft = todos.filter((todo) => todo.completed === false).length;
 
   const getCompletedTodos = () => {
-    const filterdArray = todos.filter((todo: todoType) => todo.completed === true);
+    const filterdArray = todos.filter(
+      (todo: todoType) => todo.completed === true
+    );
     if (filterdArray.length === 0) {
       return;
     } else {
@@ -79,13 +81,17 @@ function Home() {
   };
 
   return (
-    <section className={`relative font-josefin font-bold ${isDarkMode ?'bg-slate-900' : 'bg-white' }  h-screen`}  >
+    <section
+      className={`relative font-josefin font-bold ${
+        isDarkMode ? "bg-slate-900" : "bg-white"
+      }  h-screen`}
+    >
       <div style={backgroundStyle} className=" h-56 w-full duration-500 "></div>
 
-      <div className="todo-container w-[30rem] h-[35rem]  mx-auto absolute top-6 right-1/2   translate-x-1/2  ">
+      <div className="todo-container w-[16rem] sm:w-[30rem] h-[35rem]  mx-auto absolute top-6 right-1/2   translate-x-1/2  ">
         <div className="mode-typing rounded-xl">
           <div className="mode flex justify-between bg-transparent py-6">
-            <h1 className=" text-5xl text-white">TODO</h1>
+            <h1 className=" text-3xl sm:text-5xl text-white">TODO</h1>
             <div
               className="flex justify-center items-center cursor-pointer"
               onClick={() => dispatch(toggleMode(!isDarkMode))}
@@ -110,8 +116,8 @@ function Home() {
               placeholder="Create a new todo..."
               className={
                 isDarkMode
-                  ? "bg-transparent w-1/2 outline-none  text-2xl text-white py-1 duration-500 "
-                  : " duration-500 bg-transparent w-1/2 outline-none  text-2xl text-slate-400 py-1  "
+                  ? "bg-transparent w-3/4  sm:w-1/2 outline-none   sm:text-2xl text-white py-1 duration-500 "
+                  : " duration-500 bg-transparent w-1/2 outline-none  sm:text-2xl text-slate-400 py-1  "
               }
             />
           </div>
@@ -125,13 +131,11 @@ function Home() {
         </div>
         {copyArr.length > 0 ? (
           <div
-            className={
-              isDarkMode
-                ? "py-3  bg-slate-800 duration-500  text-slate-400 shadow-[0_35px_60px_-15px_rgba(0,0,0,1)]"
-                : "duration-500 py-3  bg-white  text-slate-400 shadow-[0_35px_60px_-15px_rgba(0,0,0,1)]"
-            }
+            className={`duration-500  text-slate-400 shadow-[0_35px_60px_-15px_rgba(0,0,0,1)] py-3 ${
+              isDarkMode ? "bg-slate-800" : " bg-white  "
+            }`}
           >
-            <li className="flex justify-between items-center mx-4 ">
+            <li className="flex flex-col sm:flex-row gap-y-4 justify-between items-center mx-4 ">
               <div>
                 <p
                   className={
@@ -201,7 +205,6 @@ function Home() {
           ""
         )}
       </div>
-
     </section>
   );
 }

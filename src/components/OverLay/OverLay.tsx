@@ -30,8 +30,8 @@ function OverLay({todo}:Props) {
                 onClick={() => dispatch(updateTodo(todo.id))}
                 className={
                   todo.completed
-                    ? "w-8 h-8 border rounded-full bg-gradient-to-b from-sky-600 to-purple-600 flex justify-center items-center cursor-pointer"
-                    : " cursor-pointer w-8 h-8 border rounded-full "
+                    ? "w-4 h-4 sm:w-8 sm:h-8 border rounded-full bg-gradient-to-b from-sky-600 to-purple-600 flex justify-center items-center cursor-pointer"
+                    : " cursor-pointer w-4 h-4 sm:w-8 sm:h-8 border rounded-full "
                 }
               >
                 {todo.completed ? (
@@ -46,10 +46,10 @@ function OverLay({todo}:Props) {
                   todo.completed
                     ? `${
                         isDarkMode ? "text-slate-600" : " text-slate-400"
-                      } duration-500 font-bold  text-2xl  mx-8 line-through cursor-pointer hover:text-purple-500`
+                      } duration-500 font-normal sm:font-bold  text-base sm:text-2xl  mx-2 sm:mx-8 line-through cursor-pointer hover:text-purple-500`
                     : `${
                         isDarkMode ? "text-slate-400" : " text-slate-600"
-                      } font-bold  duration-500 text-2xl  mx-8 cursor-pointer hover:text-purple-500 `
+                      } font-normal sm:font-bold  duration-500 text-base sm:text-2xl  mx-2 sm:mx-8 cursor-pointer hover:text-purple-500 `
                 }
               >
                 {todo.content}{" "}
@@ -62,8 +62,8 @@ function OverLay({todo}:Props) {
               <span
                 className={
                   isDarkMode
-                    ? "text-3xl self-end font-extrabold duration-500 hover:text-red-600 text-slate-400"
-                    : "duration-500 text-3xl self-end font-extrabold text-slate-600"
+                    ? "text-xl sm:text-3xl self-end font-extrabold duration-500 hover:text-red-600 text-slate-400"
+                    : "duration-500 text-xl sm:text-3xl self-end font-extrabold text-slate-600"
                 }
               >
                 &#10005;

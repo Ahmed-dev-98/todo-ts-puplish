@@ -26,7 +26,7 @@ export const createTodoSlice = createSlice({
             todo!.completed = !todo?.completed
         },
         craeteTodo: (state, action) => {
-            state.todos.push({ content: action.payload.todo, id: action.payload.id, completed: false })
+            state.todos.push({ content: action.payload.todoContent, id: action.payload.id, completed: false })
         },
         deleteTodo: (state, action:PayloadAction<number>) => {
             state.todos = state.todos.filter((e) => e?.id !== action.payload)
