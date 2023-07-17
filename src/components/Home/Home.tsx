@@ -114,11 +114,9 @@ function Home() {
               onChange={getInput}
               value={todoContent}
               placeholder="Create a new todo..."
-              className={
-                isDarkMode
-                  ? "bg-transparent w-3/4  sm:w-1/2 outline-none   sm:text-2xl text-white py-1 duration-500 "
-                  : " duration-500 bg-transparent w-1/2 outline-none  sm:text-2xl text-slate-400 py-1  "
-              }
+              className={`bg-transparent w-3/4  sm:w-1/2 outline-none   sm:text-2xl py-1 duration-500 ${
+                isDarkMode ? " text-white " : "text-slate-400 "
+              }`}
             />
           </div>
         </div>
